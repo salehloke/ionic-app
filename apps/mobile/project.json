@@ -28,7 +28,9 @@
           "output": "/assets/ionicons"
         },
         "apps/mobile/src/assets"],
-        "styles": ["apps/mobile/src/theme/variable.scss","apps/mobile/src/global.scss" ],
+        "styles": ["apps/mobile/src/theme/variable.scss","apps/mobile/src/global.scss", 
+        "node_modules/bootstrap/dist/css/bootstrap.min.css"
+       ],
         "scripts": []
       },
       "configurations": {
