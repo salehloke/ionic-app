@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { appRoutes } from './app.routes';
 import { NxWelcomeComponent } from './nx-welcome.component';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 const routes: Routes = []
 
@@ -12,6 +13,7 @@ const routes: Routes = []
   declarations: [AppComponent, NxWelcomeComponent],
   imports: [
     BrowserModule,
+    NgbModule,
     IonicModule.forRoot(),
     RouterModule.forRoot(appRoutes, {preloadingStrategy: PreloadAllModules}),
   ],

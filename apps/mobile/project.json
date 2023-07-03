@@ -16,21 +16,25 @@
         "polyfills": ["zone.js"],
         "tsConfig": "apps/mobile/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
-        "assets": ["apps/mobile/src/favicon.ico",
-        {
-          "glob": "**/*",
-          "input": "apps/mobile/src/assets",
-          "output": "/assets"
-        },
-        {
-          "glob": "**/*.svg",
-          "input": "node_modules/ionicons/dist/ionicons/svg",
-          "output": "/assets/ionicons"
-        },
-        "apps/mobile/src/assets"],
-        "styles": ["apps/mobile/src/theme/variable.scss","apps/mobile/src/global.scss", 
-        "node_modules/bootstrap/dist/css/bootstrap.min.css"
-       ],
+        "assets": [
+          "apps/mobile/src/favicon.ico",
+          {
+            "glob": "**/*",
+            "input": "apps/mobile/src/assets",
+            "output": "/assets"
+          },
+          {
+            "glob": "**/*.svg",
+            "input": "node_modules/ionicons/dist/ionicons/svg",
+            "output": "/assets/ionicons"
+          },
+          "apps/mobile/src/assets"
+        ],
+        "styles": [
+          "apps/mobile/src/theme/variable.scss",
+          "apps/mobile/src/global.scss",
+          "node_modules/bootstrap/dist/css/bootstrap.min.css"
+        ],
         "scripts": []
       },
       "configurations": {
@@ -70,7 +74,10 @@
           "browserTarget": "mobile:build:development"
         }
       },
-      "defaultConfiguration": "development"
+      "defaultConfiguration": "development",
+      "options": {
+        "proxyConfig": "apps/mobile/proxy.conf.json"
+      }
     },
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
