@@ -1,40 +1,25 @@
 {
-  "name": "mobile",
+  "name": "angular-tests",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
   "prefix": "ionic-app",
-  "sourceRoot": "apps/mobile/src",
+  "sourceRoot": "apps/angular-tests/src",
   "tags": [],
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/apps/mobile",
-        "index": "apps/mobile/src/index.html",
-        "main": "apps/mobile/src/main.ts",
+        "outputPath": "dist/apps/angular-tests",
+        "index": "apps/angular-tests/src/index.html",
+        "main": "apps/angular-tests/src/main.ts",
         "polyfills": ["zone.js"],
-        "tsConfig": "apps/mobile/tsconfig.app.json",
-        "inlineStyleLanguage": "scss",
+        "tsConfig": "apps/angular-tests/tsconfig.app.json",
         "assets": [
-          "apps/mobile/src/favicon.ico",
-          {
-            "glob": "**/*",
-            "input": "apps/mobile/src/assets",
-            "output": "/assets"
-          },
-          {
-            "glob": "**/*.svg",
-            "input": "node_modules/ionicons/dist/ionicons/svg",
-            "output": "/assets/ionicons"
-          },
-          "apps/mobile/src/assets"
+          "apps/angular-tests/src/favicon.ico",
+          "apps/angular-tests/src/assets"
         ],
-        "styles": [
-          "apps/mobile/src/theme/variable.scss",
-          "apps/mobile/src/global.scss",
-          "node_modules/bootstrap/dist/css/bootstrap.min.css"
-        ],
+        "styles": ["apps/angular-tests/src/styles.scss"],
         "scripts": []
       },
       "configurations": {
@@ -68,35 +53,35 @@
       "executor": "@angular-devkit/build-angular:dev-server",
       "configurations": {
         "production": {
-          "browserTarget": "mobile:build:production"
+          "browserTarget": "angular-tests:build:production"
         },
         "development": {
-          "browserTarget": "mobile:build:development"
+          "browserTarget": "angular-tests:build:development"
         }
       },
-      "defaultConfiguration": "development",
-      "options": {
-        "proxyConfig": "apps/mobile/proxy.conf.json"
-      }
+      "defaultConfiguration": "development"
     },
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
       "options": {
-        "browserTarget": "mobile:build"
+        "browserTarget": "angular-tests:build"
       }
     },
     "lint": {
       "executor": "@nx/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["apps/mobile/**/*.ts", "apps/mobile/**/*.html"]
+        "lintFilePatterns": [
+          "apps/angular-tests/**/*.ts",
+          "apps/angular-tests/**/*.html"
+        ]
       }
     },
     "test": {
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "apps/mobile/jest.config.ts",
+        "jestConfig": "apps/angular-tests/jest.config.ts",
         "passWithNoTests": true
       },
       "configurations": {
@@ -109,16 +94,7 @@
     "serve-static": {
       "executor": "@nx/web:file-server",
       "options": {
-        "buildTarget": "mobile:build"
-      }
-    },
-    "component-test": {
-      "executor": "@nx/cypress:cypress",
-      "options": {
-        "cypressConfig": "apps/mobile/cypress.config.ts",
-        "testingType": "component",
-        "skipServe": true,
-        "devServerTarget": "mobile:build"
+        "buildTarget": "angular-tests:build"
       }
     }
   }
